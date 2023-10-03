@@ -20,6 +20,7 @@ struct CustomIconButton: View {
         } label: {
             Image(systemName: iconName)
                 .resizable()
+                .scaledToFit()
                 .frame(width: 20, height: 20)
                 .foregroundColor(color)
         }
@@ -28,7 +29,7 @@ struct CustomIconButton: View {
 
 // MARK: - Previews
 #Preview {
-    CustomIconButton(action: (), iconName: "magnifyingglass", color: Color.darkPurple)
+    CustomIconButton(action: (), iconName: "ellipsis", color: Color.darkPurple)
 }
 
 #Preview {
