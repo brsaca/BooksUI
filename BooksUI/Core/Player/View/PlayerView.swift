@@ -56,6 +56,10 @@ extension PlayerView {
     func discPlayer(for audio: Audio) -> some View {
         VStack(spacing: 30){
             DiscView(audio: audio, presentation: .detail)
+                .scrollTransition { content, phase in
+                    content
+                        .scaleEffect(phase.isIdentity ? 1.0 : 0.3)
+                }
             
             Text(audio.author)
                 .font(.subheadline)
