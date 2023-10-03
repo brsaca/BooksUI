@@ -10,13 +10,13 @@ import SwiftUI
 
 struct CustomIconButton: View {
     // MARK: View Properties
-    let action: ()
+    let action: () -> Void
     let iconName: String
     let color: Color
     
     var body: some View {
         Button {
-            action
+            action()
         } label: {
             Image(systemName: iconName)
                 .resizable()
@@ -29,10 +29,10 @@ struct CustomIconButton: View {
 
 // MARK: - Previews
 #Preview {
-    CustomIconButton(action: (), iconName: "ellipsis", color: Color.darkPurple)
+    CustomIconButton(action: {}, iconName: "ellipsis", color: Color.darkPurple)
 }
 
 #Preview {
-    CustomIconButton(action: (), iconName: "magnifyingglass", color: Color.darkPurple)
+    CustomIconButton(action: {}, iconName: "magnifyingglass", color: Color.darkPurple)
 }
 

@@ -50,11 +50,11 @@ struct ContentView: View {
 extension ContentView {
     var NavBar: some View {
         HStack {
-            CustomIconButton(action: (), iconName: "square.grid.2x2", color: Color.darkPurple)
+            CustomIconButton(action: {}, iconName: "square.grid.2x2", color: Color.darkPurple)
             
             Spacer()
             
-            CustomIconButton(action: (), iconName: "magnifyingglass", color: Color.darkPurple)
+            CustomIconButton(action: {}, iconName: "magnifyingglass", color: Color.darkPurple)
             
             Image("user")
                 .resizable()

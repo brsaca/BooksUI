@@ -76,11 +76,11 @@ extension PlayerView {
     
     var TabBar: some View {
         HStack {
-            CustomIconButton(action: (), iconName: "book", color: Color.darkPurple)
+            CustomIconButton(action: {}, iconName: "book", color: Color.darkPurple)
             Spacer()
-            CustomIconButton(action: (), iconName: "text.line.last.and.arrowtriangle.forward", color: Color.darkPurple)
+            CustomIconButton(action: {}, iconName: "text.line.last.and.arrowtriangle.forward", color: Color.darkPurple)
             Spacer()
-            CustomIconButton(action: (), iconName: "heart", color: Color.darkPurple)
+            CustomIconButton(action: {}, iconName: "heart", color: Color.darkPurple)
         }
         .padding(.horizontal, 60)
         .padding(.bottom, 40)
