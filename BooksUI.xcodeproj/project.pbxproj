@@ -11,6 +11,9 @@
 		4B50D6902ACB8BB0002D8AFC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50D68F2ACB8BB0002D8AFC /* ContentView.swift */; };
 		4B50D6922ACB8BB2002D8AFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B50D6912ACB8BB2002D8AFC /* Assets.xcassets */; };
 		4B50D6952ACB8BB2002D8AFC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B50D6942ACB8BB2002D8AFC /* Preview Assets.xcassets */; };
+		4B50D6B02ACB9DDB002D8AFC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50D6AF2ACB9DDB002D8AFC /* Color.swift */; };
+		4B50D6B32ACB9F30002D8AFC /* CustomIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50D6B22ACB9F30002D8AFC /* CustomIconButton.swift */; };
+		4B50D6B52ACBA4DF002D8AFC /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50D6B42ACBA4DF002D8AFC /* Book.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		4B50D68F2ACB8BB0002D8AFC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4B50D6912ACB8BB2002D8AFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B50D6942ACB8BB2002D8AFC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4B50D6AF2ACB9DDB002D8AFC /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4B50D6B22ACB9F30002D8AFC /* CustomIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIconButton.swift; sourceTree = "<group>"; };
+		4B50D6B42ACBA4DF002D8AFC /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 		4B50D6A52ACB92DC002D8AFC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B50D6B42ACBA4DF002D8AFC /* Book.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -79,6 +86,7 @@
 		4B50D6A62ACB92E4002D8AFC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4B50D6AF2ACB9DDB002D8AFC /* Color.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -87,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				4B50D6AD2ACB9324002D8AFC /* AudioDetail */,
+				4B50D6B12ACB9F1C002D8AFC /* Components */,
 				4B50D6AB2ACB9312002D8AFC /* BookDetail */,
 				4B50D6A92ACB92FC002D8AFC /* Root */,
 			);
@@ -145,6 +154,14 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4B50D6B12ACB9F1C002D8AFC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4B50D6B22ACB9F30002D8AFC /* CustomIconButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,7 +235,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B50D6902ACB8BB0002D8AFC /* ContentView.swift in Sources */,
+				4B50D6B32ACB9F30002D8AFC /* CustomIconButton.swift in Sources */,
 				4B50D68E2ACB8BB0002D8AFC /* BooksUIApp.swift in Sources */,
+				4B50D6B52ACBA4DF002D8AFC /* Book.swift in Sources */,
+				4B50D6B02ACB9DDB002D8AFC /* Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
