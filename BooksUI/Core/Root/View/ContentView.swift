@@ -9,17 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     // MARK: View Properties
+    private var currentAudio: Audio = Audio.MOCK_AUDIOS[4]
     
     var body: some View {
         VStack(alignment: .leading)  {
             // NavBar
             NavBar
+                .padding(.top, 60)
             
             Text("My Books")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .foregroundColor(Color.darkPurple)
-                .padding(.vertical, 40)
+                .padding(.vertical, 30)
                 .padding(.leading, 60)
             
             // Books
@@ -29,10 +31,11 @@ struct ContentView: View {
             AudioSection
             
             // Current Play
-            
             Spacer()
+            MicroPlayer(audio: currentAudio)
             
         }
+        .ignoresSafeArea(.all)
     }
 }
 
@@ -88,16 +91,7 @@ extension ContentView {
             ScrollView(.horizontal, showsIndicators: false){
                 LazyHStack(spacing: 20, content: {
                     ForEach(Audio.MOCK_AUDIOS, id: \.id) { audio in
-                        ZStack {
-                            Image(audio.image)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .clipShape(Circle())
-                                .frame(width: 150, height: 150)
-                            
-                            ringProgress(for: audio.progress)
-                                .fixedSize()
-                        }
+                        DiscView(audio: audio, presentation: .collectionHome)
                     }
                 })
             }
@@ -105,22 +99,6 @@ extension ContentView {
         }
         .padding(.leading, 10)
         .padding(.top, 20)
-    }
-    
-    @ViewBuilder
-    func ringProgress(for progress: Double) -> some View {
-        ZStack {
-            Circle()
-                .stroke(Color(.systemGray4), lineWidth: 10)
-            Circle()
-                .trim(from: 0, to: CGFloat(progress))
-                .stroke(
-                    Color.darkPurple,
-                    style: StrokeStyle(lineWidth: 10, lineCap: .round))
-        }
-        .rotationEffect(Angle(degrees: -90))
-        .frame(width: 30, height: 30)
-        .background()
     }
 }
 

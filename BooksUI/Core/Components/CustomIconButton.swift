@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct CustomIconButton: View {
     // MARK: View Properties
     let action: ()
@@ -29,3 +30,8 @@ struct CustomIconButton: View {
 #Preview {
     CustomIconButton(action: (), iconName: "magnifyingglass", color: Color.darkPurple)
 }
+
+#Preview {
+    CustomIconButton(action: (), iconName: "magnifyingglass", color: Color.darkPurple)
+}
+
