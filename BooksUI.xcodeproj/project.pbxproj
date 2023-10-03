@@ -51,9 +51,11 @@
 		4B50D68C2ACB8BB0002D8AFC /* BooksUI */ = {
 			isa = PBXGroup;
 			children = (
-				4B50D68D2ACB8BB0002D8AFC /* BooksUIApp.swift */,
-				4B50D68F2ACB8BB0002D8AFC /* ContentView.swift */,
+				4B50D6A82ACB92F1002D8AFC /* App */,
 				4B50D6912ACB8BB2002D8AFC /* Assets.xcassets */,
+				4B50D6A72ACB92EC002D8AFC /* Core */,
+				4B50D6A62ACB92E4002D8AFC /* Extensions */,
+				4B50D6A52ACB92DC002D8AFC /* Model */,
 				4B50D6932ACB8BB2002D8AFC /* Preview Content */,
 			);
 			path = BooksUI;
@@ -65,6 +67,84 @@
 				4B50D6942ACB8BB2002D8AFC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4B50D6A52ACB92DC002D8AFC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B50D6A62ACB92E4002D8AFC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4B50D6A72ACB92EC002D8AFC /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4B50D6AD2ACB9324002D8AFC /* AudioDetail */,
+				4B50D6AB2ACB9312002D8AFC /* BookDetail */,
+				4B50D6A92ACB92FC002D8AFC /* Root */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4B50D6A82ACB92F1002D8AFC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4B50D68D2ACB8BB0002D8AFC /* BooksUIApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4B50D6A92ACB92FC002D8AFC /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				4B50D6AA2ACB9307002D8AFC /* View */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		4B50D6AA2ACB9307002D8AFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4B50D68F2ACB8BB0002D8AFC /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4B50D6AB2ACB9312002D8AFC /* BookDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4B50D6AC2ACB931F002D8AFC /* View */,
+			);
+			path = BookDetail;
+			sourceTree = "<group>";
+		};
+		4B50D6AC2ACB931F002D8AFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4B50D6AD2ACB9324002D8AFC /* AudioDetail */ = {
+			isa = PBXGroup;
+			children = (
+				4B50D6AE2ACB932B002D8AFC /* View */,
+			);
+			path = AudioDetail;
+			sourceTree = "<group>";
+		};
+		4B50D6AE2ACB932B002D8AFC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
