@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     // MARK: View Properties
     private var currentAudio: Audio = Audio.MOCK_AUDIOS[4]
+    @State private var showingPlayer = false
     
     var body: some View {
         VStack(alignment: .leading)  {
@@ -33,9 +34,15 @@ struct ContentView: View {
             // Current Play
             Spacer()
             MicroPlayer(audio: currentAudio)
+                .onTapGesture {
+                    showingPlayer.toggle()
+                }
             
         }
         .ignoresSafeArea(.all)
+        .sheet(isPresented: $showingPlayer) {
+            PlayerView(currentAudio: Audio.MOCK_AUDIOS[3])
+        }
     }
 }
 
