@@ -14,6 +14,7 @@
 		4B50D6B02ACB9DDB002D8AFC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50D6AF2ACB9DDB002D8AFC /* Color.swift */; };
 		4B50D6B32ACB9F30002D8AFC /* CustomIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50D6B22ACB9F30002D8AFC /* CustomIconButton.swift */; };
 		4B50D6B52ACBA4DF002D8AFC /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50D6B42ACBA4DF002D8AFC /* Book.swift */; };
+		4B50D6B72ACBAE93002D8AFC /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B50D6B62ACBAE93002D8AFC /* Audio.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		4B50D6AF2ACB9DDB002D8AFC /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4B50D6B22ACB9F30002D8AFC /* CustomIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIconButton.swift; sourceTree = "<group>"; };
 		4B50D6B42ACBA4DF002D8AFC /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		4B50D6B62ACBAE93002D8AFC /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		4B50D6A52ACB92DC002D8AFC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B50D6B62ACBAE93002D8AFC /* Audio.swift */,
 				4B50D6B42ACBA4DF002D8AFC /* Book.swift */,
 			);
 			path = Model;
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B50D6B72ACBAE93002D8AFC /* Audio.swift in Sources */,
 				4B50D6902ACB8BB0002D8AFC /* ContentView.swift in Sources */,
 				4B50D6B32ACB9F30002D8AFC /* CustomIconButton.swift in Sources */,
 				4B50D68E2ACB8BB0002D8AFC /* BooksUIApp.swift in Sources */,

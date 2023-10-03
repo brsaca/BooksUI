@@ -26,8 +26,7 @@ struct ContentView: View {
             BooksSection
             
             // Audio
-            
-            
+            AudioSection
             
             // Current Play
             
@@ -77,6 +76,51 @@ extension ContentView {
             .frame(height: 250)
         }
         .padding(.leading, 10)
+    }
+    
+    var AudioSection: some View {
+        HStack(alignment: .top) {
+            Text("\(Audio.MOCK_AUDIOS.count) audio" ).rotationEffect(Angle(degrees: -90))
+                .foregroundColor(Color.darkPurple)
+                .font(.subheadline)
+                .padding(.top, 50)
+            
+            ScrollView(.horizontal, showsIndicators: false){
+                LazyHStack(spacing: 20, content: {
+                    ForEach(Audio.MOCK_AUDIOS, id: \.id) { audio in
+                        ZStack {
+                            Image(audio.image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .clipShape(Circle())
+                                .frame(width: 150, height: 150)
+                            
+                            ringProgress(for: audio.progress)
+                                .fixedSize()
+                        }
+                    }
+                })
+            }
+            .frame(height: 200)
+        }
+        .padding(.leading, 10)
+        .padding(.top, 20)
+    }
+    
+    @ViewBuilder
+    func ringProgress(for progress: Double) -> some View {
+        ZStack {
+            Circle()
+                .stroke(Color(.systemGray4), lineWidth: 10)
+            Circle()
+                .trim(from: 0, to: CGFloat(progress))
+                .stroke(
+                    Color.darkPurple,
+                    style: StrokeStyle(lineWidth: 10, lineCap: .round))
+        }
+        .rotationEffect(Angle(degrees: -90))
+        .frame(width: 30, height: 30)
+        .background()
     }
 }
 
