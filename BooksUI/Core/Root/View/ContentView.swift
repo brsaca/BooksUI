@@ -11,6 +11,7 @@ struct ContentView: View {
     // MARK: View Properties
     private var currentAudio: Audio = Audio.MOCK_AUDIOS[4]
     @State private var showingPlayer = false
+    @Namespace var namespace
     
     var body: some View {
         VStack(alignment: .leading)  {

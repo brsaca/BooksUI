@@ -11,7 +11,6 @@ struct PlayerView: View {
     //MARK: View Properties
     let currentAudio: Audio
     
-    
     var body: some View {
         VStack(spacing: 40) {
             Notch(color: Color.darkPurple)
@@ -56,11 +55,7 @@ extension PlayerView {
     func discPlayer(for audio: Audio) -> some View {
         VStack(spacing: 30){
             DiscView(audio: audio, presentation: .detail)
-                .scrollTransition { content, phase in
-                    content
-                        .scaleEffect(phase.isIdentity ? 1.0 : 0.3)
-                }
-            
+                
             Text(audio.author)
                 .font(.subheadline)
                 .fontWeight(.light)
@@ -72,8 +67,10 @@ extension PlayerView {
                 .fontWeight(.semibold)
                 .foregroundStyle(Color.darkPurple)
                 .frame(maxWidth: 300)
-            
-            
+        }
+        .scrollTransition { content, phase in
+            content
+                .scaleEffect(phase.isIdentity ? 1.0 : 0.3)
         }
     }
     

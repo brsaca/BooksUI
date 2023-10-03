@@ -18,6 +18,7 @@ struct MicroPlayer: View {
             VStack(alignment: .leading, spacing: 5) {
                 HStack(spacing: 20) {
                     DiscView(audio: audio, presentation: .miniPlayer)
+                    
                     VStack(alignment: .leading){
                         Text(audio.name)
                             .font(.title3)
