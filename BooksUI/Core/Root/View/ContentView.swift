@@ -9,40 +9,41 @@ import SwiftUI
 
 struct ContentView: View {
     // MARK: View Properties
-    private var currentAudio: Audio = Audio.MOCK_AUDIOS[4]
     @State private var showingPlayer = false
     @Namespace var namespace
     
     var body: some View {
-        VStack(alignment: .leading)  {
-            // NavBar
-            NavBar
-                .padding(.top, 60)
-            
-            Text("My Books")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .foregroundColor(Color.darkPurple)
-                .padding(.vertical, 30)
-                .padding(.leading, 60)
-            
-            // Books
-            BooksSection
-            
-            // Audio
-            AudioSection
-            
-            // Current Play
-            Spacer()
-            MicroPlayer(audio: currentAudio)
-                .onTapGesture {
-                    showingPlayer.toggle()
-                }
-            
-        }
-        .ignoresSafeArea(.all)
-        .sheet(isPresented: $showingPlayer) {
-            PlayerView(currentAudio: Audio.MOCK_AUDIOS[3])
+        NavigationStack {
+            VStack(alignment: .leading)  {
+                // NavBar
+                NavBar
+                    .padding(.top, 60)
+                
+                Text("My Books")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.darkPurple)
+                    .padding(.vertical, 30)
+                    .padding(.leading, 60)
+                
+                // Books
+                BooksSection
+                
+                // Audio
+                AudioSection
+                
+                // Current Play
+                Spacer()
+                MicroPlayer(audio: Audio.CURRENT_AUDIO)
+                    .onTapGesture {
+                        showingPlayer.toggle()
+                    }
+                
+            }
+            .ignoresSafeArea(.all)
+            .sheet(isPresented: $showingPlayer) {
+                PlayerView(currentAudio: Audio.MOCK_AUDIOS[3])
+            }
         }
     }
 }
@@ -77,10 +78,19 @@ extension ContentView {
             ScrollView(.horizontal, showsIndicators: false){
                 LazyHStack(spacing: 40, content: {
                     ForEach(Book.MOCK_BOOKS, id: \.id) { book in
-                        Image(book.image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 160, height: 240)
+                        
+                        NavigationLink(
+                            destination: BookDetailView(book: book)
+                                .navigationBarTitle("")
+                                .navigationBarHidden(true)
+                                .navigationBarBackButtonHidden(true)
+                        ){
+                            Image(book.image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 160, height: 240)
+                        }
+                        
                     }
                 })
             }

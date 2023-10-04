@@ -14,6 +14,9 @@ struct BookDetailView: View {
     @State private var isImageDisplayed = false
     @State private var offsetY: CGFloat = 0
     @State var colorSelected: ColorOption = .dark
+    @State var alignmentSelected: AlignmentOption = .left
+    @State private var hasScroll = false
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,7 +29,10 @@ struct BookDetailView: View {
             Spacer()
         }
         .sheet(isPresented: $showOptions, content: {
-            OptionsSheet(colorSelected: $colorSelected)
+            OptionsSheet(
+                colorSelected: $colorSelected,
+                alignmentSelelected: $alignmentSelected
+            )
         })
         .background(colorSelected.color)
     }
@@ -52,10 +58,13 @@ extension BookDetailView {
                         .resizable()
                         .frame(width: 15, height: 15)
                         .foregroundStyle(colorSelected.textColor)
+                        .onTapGesture {
+                            dismiss()
+                        }
                 }
                 .padding(.leading, 25)
             }
-            .animation(.easeInOut(duration: 1.0), value: isImageDisplayed)
+            .animation(.easeInOut(duration: 1.0), value: (isImageDisplayed && hasScroll) )
             
             Spacer()
             
@@ -93,10 +102,12 @@ extension BookDetailView {
                     .lineSpacing(8)
                     .fontWeight(.regular)
                     .foregroundStyle(colorSelected.textColor)
+                    .multilineTextAlignment(alignmentSelected.value)
             }
             .padding(.horizontal,30)
             .background {
                 ScrollDetector { offset in
+                    hasScroll = true
                     offsetY = -offset
                     isImageDisplayed = offsetY >= -320
                 } onDraggingEnd: { offset, velocity in
