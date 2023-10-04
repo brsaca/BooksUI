@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum ColorOption {
+enum ColorOption: CaseIterable {
     case none
     case light
     case dark
@@ -35,9 +35,9 @@ struct ColorSelection: View {
     
     var body: some View {
         HStack(spacing: 20) {
-            colorButton(for: ColorOption.none)
-            colorButton(for: ColorOption.light)
-            colorButton(for: ColorOption.dark)
+            ForEach(ColorOption.allCases, id:\.self) { option in
+                colorButton(for: option)
+            }
         }
     }
 }
