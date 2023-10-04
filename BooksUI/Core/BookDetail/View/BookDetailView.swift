@@ -11,9 +11,9 @@ struct BookDetailView: View {
     // MARK: View Properties
     let book: Book
     @State private var showOptions: Bool = false
-    @State private var sheetHeight: CGFloat = .zero
     @State private var isImageDisplayed = false
     @State private var offsetY: CGFloat = 0
+    @State var colorSelected: ColorOption = .dark
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -26,14 +26,9 @@ struct BookDetailView: View {
             Spacer()
         }
         .sheet(isPresented: $showOptions, content: {
-            GeometryReader(content: { geometry in
-                let size = geometry.size
-                OptionsSheet(size)
-            })
-            .presentationCornerRadius(30)
-            .presentationDetents(sheetHeight == .zero ? [.medium] : [.height(sheetHeight)])
+            OptionsSheet
         })
-        .background(Color.darkPurple)
+        .background(colorSelected.color)
     }
 }
 
@@ -56,7 +51,7 @@ extension BookDetailView {
                     Image(systemName: "xmark")
                         .resizable()
                         .frame(width: 15, height: 15)
-                        .foregroundStyle(Color.myLightPurple)
+                        .foregroundStyle(colorSelected.textColor)
                 }
                 .padding(.leading, 25)
             }
@@ -64,30 +59,31 @@ extension BookDetailView {
             
             Spacer()
             
-            CustomIconButton(action: {}, iconName: "magnifyingglass", color: Color.myLightPurple)
+            CustomIconButton(action: {}, iconName: "magnifyingglass", color: colorSelected.textColor)
                 .padding(.trailing, 30)
             
-            CustomIconButton(action: { showOptions.toggle() }, iconName: "ellipsis", color: Color.myLightPurple)
+            CustomIconButton(action: { showOptions.toggle() }, iconName: "ellipsis", color: colorSelected.textColor)
         }
         .padding(.leading, 30)
         .padding(.trailing, 40)
     }
     
-    @ViewBuilder
-    func OptionsSheet(_ size: CGSize) -> some View {
-        VStack {
-            HStack {
-                Image(systemName: "sun.min")
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                    .foregroundStyle(Color.darkPurple)
-            }
+    
+    var OptionsSheet: some View {
+        VStack(spacing: 40) {
+            CustomSlider()
+                .padding(.horizontal, 20)
+                .padding(.top, 20)
+            
+            ColorSelection(colorSelected: $colorSelected)
         }
-        .padding(15)
+        .padding()
+        .padding(.top, 25)
         .padding(.horizontal, 10)
-        .padding(.top, 15)
         .padding(.bottom, 130)
-        .frame(width: size.width, alignment: .leading)
+        .frame(width: .infinity, alignment: .leading)
+        .presentationCornerRadius(30)
+        .presentationDetents( [.height(250)] )
     }
     
     var BookInfo: some View {
@@ -107,14 +103,14 @@ extension BookDetailView {
                 Text(book.title)
                     .font(.largeTitle)
                     .fontWeight(.semibold)
-                    .foregroundStyle(Color.myLightPurple)
+                    .foregroundStyle(colorSelected.textColor)
                 
                 Text(book.details)
                     .font(.footnote)
                     .kerning(3)
                     .lineSpacing(8)
                     .fontWeight(.regular)
-                    .foregroundStyle(Color.myLightPurple)
+                    .foregroundStyle(colorSelected.textColor)
             }
             .padding(.horizontal,30)
             .background {
