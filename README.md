@@ -15,7 +15,7 @@ Design App on SwiftUI from Dribbble [Book Store App]([https://dribbble.com/shots
     <img alt="swiftUI" src="https://img.shields.io/badge/SwiftUI-17-blue.svg" />
   </a>
   <a href="#">
-    <img alt="status" src="https://img.shields.io/badge/status-inprogress-yellow.svg" />
+    <img alt="status" src="https://img.shields.io/badge/status-done-green.svg" />
   </a>
   <br>
     <br>
@@ -26,6 +26,11 @@ Design App on SwiftUI from Dribbble [Book Store App]([https://dribbble.com/shots
 
 ## 📝 Description
 Develop an app from a dribbble design in SwiftUI
+
+## ⁉️ Pending
+- Apply path in the background
+- Align fonts in the horizontal scroll
+- Apply the font selected in the text
 
 ## 👤 Author
 
