@@ -12,21 +12,26 @@ struct PlayerView: View {
     let currentAudio: Audio
     
     var body: some View {
+        
         VStack(spacing: 40) {
             Notch(color: Color.darkPurple)
                 .padding(.top, 40)
             
-            ScrollView(.horizontal, showsIndicators: false){
-                LazyHStack(spacing: 20, content: {
-                    ForEach(Audio.MOCK_AUDIOS, id: \.id) { audio in
-                        discPlayer(for: audio)
-                    }
-                })
-                .scrollTargetLayout()
+            ZStack {
+                ScrollView(.horizontal, showsIndicators: false){
+                    LazyHStack(spacing: 20, content: {
+                        ForEach(Audio.MOCK_AUDIOS, id: \.id) { audio in
+                            discPlayer(for: audio)
+                        }
+                    })
+                    .scrollTargetLayout()
+                }
+                .frame(height: 500)
+                .scrollTargetBehavior(.viewAligned)
+                .safeAreaPadding(.horizontal, 40)
+                
+                PlayButton
             }
-            .frame(height: 500)
-            .scrollTargetBehavior(.viewAligned)
-            .safeAreaPadding(.horizontal, 40)
             
             progressBar(for: currentAudio)
             
@@ -115,5 +120,5 @@ extension PlayerView {
 
 //MARK: - Previews
 #Preview {
-    PlayerView(currentAudio: Audio.MOCK_AUDIOS[0])
+    PlayerView(currentAudio: Audio.CURRENT_AUDIO)
 }

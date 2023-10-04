@@ -42,7 +42,7 @@ struct ContentView: View {
             }
             .ignoresSafeArea(.all)
             .sheet(isPresented: $showingPlayer) {
-                PlayerView(currentAudio: Audio.MOCK_AUDIOS[3])
+                PlayerView(currentAudio: Audio.CURRENT_AUDIO)
             }
         }
     }
@@ -109,7 +109,9 @@ extension ContentView {
             ScrollView(.horizontal, showsIndicators: false){
                 LazyHStack(spacing: 20, content: {
                     ForEach(Audio.MOCK_AUDIOS, id: \.id) { audio in
-                        DiscView(audio: audio, presentation: .collectionHome)
+                        if (audio.id != Audio.CURRENT_AUDIO.id) {
+                            DiscView(audio: audio, presentation: .collectionHome)
+                        }
                     }
                 })
             }
